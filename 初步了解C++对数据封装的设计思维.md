@@ -658,7 +658,7 @@ int main()
 
 那么就需要用到 `public:` `private:`具体看代码
 
-```
+```C++
 class Student
 {
 private:
@@ -709,7 +709,7 @@ public和private可以交错使用，可以写好几个
 
 比如这样
 
-```
+```C++
 private:
     int ID;
 public:
