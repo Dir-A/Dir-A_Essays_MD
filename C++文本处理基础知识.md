@@ -264,7 +264,7 @@ str2 = str2 + "Good" + "Get" + "This" + "Text" + str;
 
 复制字符串将用到`string`类中`substr()`这个方法
 
-从`str2`跳过三个字符开始复制三个字符到str1中
+从`str2`跳过三个字符开始复制字符到str1中
 
 执行完后 `str1` 为 `"loGoodGetThisTextDir-A"`
 
@@ -280,9 +280,9 @@ int main()
 
 当然你也可以指定拷贝的长度
 
-比如我想从`str2`跳过4个字符，复制4个字符到`str1`
+比如我想从`str2`跳过4个字符，复制3个字符到`str1`
 
-执行完后`str2`为`"oGo"`
+执行完后`str1`为`"oGo"`
 
 ```C++
 string str1 = str2.substr(4,3);
