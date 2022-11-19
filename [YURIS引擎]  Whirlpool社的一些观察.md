@@ -119,40 +119,40 @@ unsigned AnsiChar data[56] = {
 
 ```c++
 48030040 FB0A pushscalarvar FB0A
-4201005F 	  pushint8 0x5F
+4201005F      pushint8 0x5F
 3D0000	      equal
 48030040 FF0A pushscalarvar FF0A
 420100   5E   pushint8 0x5E
 48030040 FB0A pushscalarvar FB0A
 420100   2E   pushint8 0x2E
-3D0000 		  equal
+3D0000 	      equal
 48030040 FF0A pushscalarvar FF0A
 420100   5F   pushint8 0x5F
 48030040 FC0A pushscalarvar FC0A
 570200   8100 pushint16 0x8100
-5A0000 		  ge
+5A0000 	      ge
 48030040 FC0A pushscalarvar FC0A
 570200   9F00 pushint16 0x9F00
-530000 		  le
-260000		  logand
+530000 	      le
+260000	      logand
 48030040 FC0A pushscalarvar FC0A
 570200   E000 pushint16 0xE000
-5A0000 		  ge
+5A0000 	      ge
 48030040 FC0A pushscalarvar FC0A
 570200   FC00 pushint16 0xFC00
-530000 		  le
-260000		  logand
-7C0000		  logor
+530000 	      le
+260000	      logand
+7C0000	      logor
 48030040 FF0A pushscalarvar FF0A
 420100   60   pushint8 0x60
 48030040 FB0A pushscalarvar FB0A
-420100   22	  pushint8 0x22
-3D0000 		  equal
+420100   22   pushint8 0x22
+3D0000 	      equal
 48030040 FF0A pushscalarvar
 420100   16   pushint8 0x16
 48030040 FB0A pushscalarvar
 420100   20   pushint8 0x20
-3D0000 		  equal
+3D0000 	      equal
 
 ```
 
