@@ -20,7 +20,7 @@
 
 给 `ExitProcess()`函数下个断点，重新跑一下，发现确实断下来了。为了方便跟踪退出的原因，我们先用IDA分析一下游戏执行文件。
 
-我们先来到改改断下来的地方，找到压入栈里的返回地址（也就是来到调用 `ExitProcess()`函数的地方）也就是找到 `call dword ptr ds:[&ExitProcess]`,复制一下地址，在IDA里按G转到相应的地方，然后反编译成C语言
+我们先来到看看断下来的地方，找到压入栈里的返回地址（也就是来到调用 `ExitProcess()`函数的地方）也就是找到 `call dword ptr ds:[&ExitProcess]`,复制一下地址，在IDA里按G转到相应的地方，然后反编译成C语言
 
 ![图3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%9B%BE3.png)
 
