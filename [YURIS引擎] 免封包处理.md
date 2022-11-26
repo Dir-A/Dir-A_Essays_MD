@@ -179,7 +179,7 @@ BOOL __usercall sub_4405FC@<eax>(const CHAR *a1@<eax>)
 
 这时候，可以搜索`yscfg.ybn`字符串，然后找到它的优先级的那个数组，把第一个元素改成3即可。
 
-```
+```ASM
 00463DF3  | 75 22                       | jne casablanca.463E17                         |
 00463DF5  | C68424 68010000 00          | mov byte ptr ss:[esp+168],0  <-改成3           |
 00463DFD  | C68424 69010000 01          | mov byte ptr ss:[esp+169],1                   |
