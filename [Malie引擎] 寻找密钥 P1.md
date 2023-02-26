@@ -53,7 +53,7 @@ exdieslib也能直接看到密钥啥样。
 
 我选择的游戏是 Deep Love Diary -恋人日記- パッケージ版 这个是Garbro有内置密钥支持解包的，需要注意的是有时候Garbro自身残留配置文件，会导致无法识别游戏，进而没办法解包，即使内置密钥也不行。由于我懒得找Garbro的配置文件了，之前记得在用户文件夹的什么地方，后面忘了，反出现这种情况。直接把Garbro移动到别的文件夹或路径下就可以了。
 
-ok，准备就绪我们来看看密钥，在左下角的watch窗口可以看到KnownSchemes这个结构，点+展开，就能看到里面对应的游戏名和密钥了。和exdieslib是一样的，不过Garbro的密钥大小会少4*4个字节，不过一般都是00。
+ok，准备就绪我们来看看密钥，在左下角的auto窗口可以看到KnownSchemes这个结构，点+展开，就能看到里面对应的游戏名和密钥了。和exdieslib是一样的，不过Garbro的密钥大小会少4*4个字节，不过一般都是00。
 
 ![6](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5/6.png)
 
