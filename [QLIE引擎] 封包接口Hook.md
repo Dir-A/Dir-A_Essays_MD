@@ -6,7 +6,7 @@
 
 前不久 Happy Live Show Up 发了官中，但是又搞的奇奇怪怪的加密，很是无聊，稍微调了下和之前 ハミダシクリエイティブ 官中是挺像的。
 
-team的dll是用Themida保护的，其实就是Themida自己手动加载dll，目录下那个dll实际上是没用的，不过和内存里dump出来的是一样的，和Steamworks官方提供的dll好像也是一样的，这都不算什么，毕竟Alpharom十多年前就玩过了，小套路而已，但是这玩意比Alpharom强的是懂得代码虚拟化，调着真是依托shit啊。
+steam的dll是用Themida保护的，其实就是Themida自己手动加载dll，目录下那个dll实际上是没用的，不过和内存里dump出来的是一样的，和Steamworks官方提供的dll好像也是一样的，这都不算什么，毕竟Alpharom十多年前就玩过了，小套路而已，但是这玩意比Alpharom强的是懂得代码虚拟化，调着真是依托shit啊。
 
 ![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/3.png?raw=true)
 
