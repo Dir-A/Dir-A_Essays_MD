@@ -81,7 +81,7 @@ AGE引擎的`ASProtect`主要在2013年左右的版本上，2017年的`天結い
 ![12](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/12.png)
 
 在OllyDump窗口，确认OEP的地址和OEP的RVA，然后点击获取EIP作为OEP，再次确认地址，和log对应，则点击脱壳，然后输入新的文件名保存即可。在保存之前可以看到，多出来个de_AGE.exe的文件，不必理会这个文件，稍后可以自行删除。保存途径可能会卡住几秒，等待即可。
-
+![14](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/14.png)
 ![15](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/15.png)
 
 把脱壳后的exe复制回物理机，运行查看效果。
