@@ -1,26 +1,32 @@
 # [AGE引擎] Eushully ASProtect 脱壳
 
-AGE引擎的ASProtect主要在2013年左右的版本上，2017年的天結いキャッスルマイスター已经采用了PlayDrm。ASProtect主要加在AGE.EXE和AGERC.DLL上，前者为游戏主程序，后者为游戏的资源DLL（标题菜单，模态窗口），AGERC.DLL容易被加壳软件识别为ASPack，其实内部的IAT是加密的。网上大多数讲解ASProtect脱壳的教程都是老的1.xx版本，其IAT没有什么特殊的处理，AGE的加的是2.xx的版本，FF15的Call被特殊处理过，其它代码段未见特殊处理，未见OEP虚拟化或被偷。
+AGE引擎的`ASProtect`主要在2013年左右的版本上，2017年的`天結いキャッスルマイスター`已经采用了`PlayDRM`。  
+`ASProtect`主要加在 `AGE.EXE` 和 `AGERC.DLL` 上，前者为游戏主程序，后者为游戏的资源DLL（标题菜单，模态窗口），  
+`AGERC.DLL`容易被加壳软件识别为`ASPack`，其实内部的`IAT`是加密的。  
+网上大多数讲解`ASProtect`脱壳的教程都是老的`1.xx`版本，其`IAT`没有什么特殊的处理，  
+`AGE`的加的是`2.xx`的版本，`FF15`的`Call`被VM了，其它代码段未见特殊处理，未见`OEP`虚拟化或被偷。  
 
-ASProtect由于比较古老，很多人研究，存在大量的脚本，接下来我们利用脚本对AGE的主程序和资源DLL进行脱壳即可。
+`ASProtect`由于比较古老，很多人研究，存在大量的脚本，接下来我们利用脚本对AGE的主程序和资源DLL进行脱壳即可。
 
 ## 准备工作
 
 ### 目标游戏
 
-魔導巧殻 (1.03更新补丁，AP，都无所谓，不改变原本的EXE和DLL)
+`魔導巧殻` (1.03更新补丁，AP，都无所谓，不改变原本的EXE和DLL)
 
 ### 环境
 
-Windows XP Pro SP3
+`Windows XP Pro SP3`
 
-Ollydbg （这里选用吾爱破解的版本，其它版本可能需要自行添加 ODbgScript ，OllyDump插件）
+`Ollydbg` （这里选用吾爱破解的版本，其它版本可能需要自行添加 `ODbgScript` ，`OllyDump`插件）
 
-Scylla x86 v0.9.8
+`Scylla x86 v0.9.8`
 
-ASProtect unpaker script by VolX 1.15E（1.15F也可以，注意Asprvm8s.bin这个文件必须要有）
+`ASProtect unpaker script by VolX 1.15E`（1.15F也可以，注意`Asprvm8s.bin`这个文件必须要有）
 
 比较懒的可以直接下，吾爱破解工具包，除了脚本都有。
+
+脚本和脱壳/未脱壳的文件在[此处](https://github.com/Dir-A/Dir-A_Essays_MD/tree/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/%E9%99%84%E4%BB%B6)
 
 ## 修改脚本
 
