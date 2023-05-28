@@ -1,7 +1,7 @@
 # Eushully (AGE) 过注册检查
 
-Eushully 的AGE引擎(ARCGameEngine)有一种类似于CatSystem2的本机安装标识文件，也就防止你直接拷贝游戏到别的机器上运行，区别在于CatSystem2的检查是直接不让你运行，而AGE则是运行后随机弹窗来恶心你
-
+Eushully 的AGE引擎(ARCGameEngine)有一种类似于CatSystem2的本机安装标识文件，也就防止你直接拷贝游戏到别的机器上运行，区别在于CatSystem2的检查是直接不让你运行，而AGE则是运行后随机弹窗来恶心你  
+需要先脱壳，请参考 [[AGE引擎] Eushully ASProtect 脱壳](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3.md)
 ## 目标游戏：魔導巧殻
  调用检查函数
 
