@@ -30,23 +30,23 @@ AGE引擎的`ASProtect`主要在2013年左右的版本上，2017年的`天結い
 
 ## 修改脚本
 
-由于脚本需要用到 Asprvm8s.bin 文件，里面的路径是固定的，要么把文件放到脚本默认的路径中，要么自行修改路径，总共两处，在Aspr2.XX_unpacker_v1.15E.osc里搜索 Asprvm8s.bin 字段就可以找到
+由于脚本需要用到 `Asprvm8s.bin` 文件，里面的路径是固定的，要么把文件放到脚本默认的路径中，要么自行修改路径，总共两处，在`Aspr2.XX_unpacker_v1.15E.osc`里搜索 `Asprvm8s.bin` 字段就可以找到
 
 ![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/1.png)
 
 ![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/2.png)
 
-此处我修改到C盘根目录，同时把 Asprvm8s.bin 放到C盘根目录下。
+此处我修改到C盘根目录，同时把 `Asprvm8s.bin` 放到C盘根目录下。
 
 ![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/3.png)
 
 ## 开脱
 
-脚本文件和游戏EXE和DLL拽入虚拟机中
+`脚本文件`和游戏`EXE`和`DLL`拽入虚拟机中
 
 ![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/4.png)
 
-打开Ollydbg把EXE拽进去，提示代码压缩加密，点否即可。
+打开`Ollydbg`把`EXE`拽进去，提示代码压缩加密，点否即可。
 
 ![5](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/5.png)
 
@@ -54,71 +54,71 @@ AGE引擎的`ASProtect`主要在2013年左右的版本上，2017年的`天結い
 
 ![6](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/6.png)
 
-在菜单栏，选择插件，选择ODbgScript，选择运行脚本，打开
+在菜单栏，选择插件，选择`ODbgScript`，选择运行脚本，打开
 
 ![7](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/7.png)
 
 ![8](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/8.png)
 
-打开后会自动运行，请确认脚本中的路径已经修改，或 Asprvm8s.bin 文件已经放置在对应的路径下，否则在运行脚本的过程中，会直接卡住。
+打开后会自动运行，请确认脚本中的路径已经修改，或 `Asprvm8s.bin` 文件已经放置在对应的路径下，否则在运行脚本的过程中，会直接卡住。
 
-如果脚本没有运行，可以点窗口界面内的缩小窗口，在刚刚的ODbgScript插件里找到脚本运行窗口，在脚本窗口按下空格，或右键--继续来运行脚本
+如果脚本没有运行，可以点窗口界面内的缩小窗口，在刚刚的`ODbgScript`插件里找到脚本运行窗口，在脚本窗口按下空格，或右键--继续来运行脚本
 
 ![9](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/9.png)
 
 ![10](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/10.png)
 
-运行结束后，如图所示，提示没有被偷代码，和让我们检查log窗口的IAT信息，点确认即可。
+运行结束后，如图所示，提示没有被偷代码，和让我们检查`Log窗口`的`IAT信息`，点确认即可。
 
 ![11](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/11.png)
 
-按下菜单栏下边的的 l 按钮，来打开log窗口，查看OEP和IAT的相关详细，如果没有则脚本无效，或者有别的问题
+按下菜单栏下边的的` l 按钮`，来打开`Log窗口`，查看`OEP`和`IAT`的相关详细，如果没有则脚本无效，或者有别的问题
 
 ![13](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/13.png)
 
-确认存在OEP和IAT信息，然后，选择菜单栏，插件--->OllyDump--->脱壳在当前调试的进程
+确认存在`OEP`和`IAT`信息，然后，选择菜单栏，`插件`--->`OllyDump`--->`脱壳在当前调试的进程`
 
 ![12](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/12.png)
 
-在OllyDump窗口，确认OEP的地址和OEP的RVA，然后点击获取EIP作为OEP，再次确认地址，和log对应，则点击脱壳，然后输入新的文件名保存即可。在保存之前可以看到，多出来个de_AGE.exe的文件，不必理会这个文件，稍后可以自行删除。保存途径可能会卡住几秒，等待即可。
+在`OllyDump`窗口，确认`OEP的地址`和`OEP的RVA`，然后点击`获取EIP作为OEP`，再次确认地址，和`Log窗口`的信息对应，则点击`脱壳`，然后输入新的文件名保存即可。在保存之前可以看到，多出来个`de_AGE.exe`的文件，不必理会这个文件，稍后可以自行删除。保存途径可能会卡住几秒，等待即可。
 ![14](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/14.png)
 ![15](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/15.png)
 
-把脱壳后的exe复制回物理机，运行查看效果。
+把脱壳后的`EXE`复制回物理机，运行查看效果。
 
 ![16](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/16.png)
 
 如果出现在物理机无法运行，虚拟机正常运行的情况，请尝试以下步骤。
 
-重新操作到脚本运行完成和打开log窗口查看OEP和IAT信息的步骤
+重新操作到脚本运行完成和打开`Log窗口`查看`OEP和IAT信息`的步骤
 
-打开Scylla x86，选择当前需要脱壳的进程，并再次确认OEP和RVA信息
+打开`Scylla x86`，选择当前需要脱壳的进程，并再次确认`OEP和RVA信息`
 
 ![17](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/17.png)
 
-填入OEP地址，IAT地址，IAT大小，然后点击获取输入表，可以看到下图输入表全部绿色勾，表示正常获取。
+填入`OEP地址`，`IAT地址`，`IAT大小`，然后点击获取输入表，可以看到下图输入表全部绿色勾，表示正常获取。
 
 ![18](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/18.png)
 
-此时点击 显示无效函数和显示可以函数，如果只有一个IsDialogMessageA为可疑，则无需理会，如果有大量可疑和无效，则脚本不成功。
+此时点击 `显示无效函数`和`显示可疑函数`，如果只有一个`IsDialogMessageA`为可疑，则无需理会，如果有大量可疑和无效，则脚本不成功。
 
 ![19](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/19.png)
 
-然后点击转储到文件，默认命名不必修改，直接保存即可
+然后点击`转储到文件`，默认命名不必修改，直接保存即可
 
 ![20](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/20.png)
 
-接着点击修复转储后的文件，找到刚刚转储的文件打开即可
+接着点击`修复转储后的文件`，找到刚刚转储的文件打开即可
 
 ![21](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/21.png)
 
-此时转储文件同目录下会多出一个后缀为_SCY.exe的新文件，复制到物理机运行查看效果
+此时转储文件同目录下会多出一个后缀为`_SCY.exe`的新文件，复制到物理机运行查看效果
 
 ![22](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/22.png)
 
-至此，基本Eushully ASProtect 的主程序都可以正常脱壳，如不行，就换Import REConstructor继续尝试。
+至此，基本Eushully ASProtect 的主程序都可以正常脱壳，如不行，就换`Import REConstructor`继续尝试。
 
-AGERC.DLL的脱壳和上面一样，区别在于，dll是无法直接运行，所以dll在od里其实是挂在一个loader上的，如果用Scylla x86 脱壳，需要选择 loaddl.exe程序，然后选取dll，然后 修复转储后的文件 应该选择de_AGERC.DLL，而不是直接修复Scylla的转储，之后操作一样。
+`AGERC.DLL`的脱壳和上面一样，区别在于，DLL是无法直接运行，所以DLL在OD里其实是挂在一个`loader`上的，如果用`Scylla x86`脱壳，需要选择`loaddl.exe`程序，然后`选取DLL`，然后 `修复转储后的文件` 应该选择`de_AGERC.DLL`，而不是直接修复Scylla的转储，之后操作一样。
 
 ![23](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5D%20Eushully%20ASProtect%20%E8%84%B1%E5%A3%B3/23.png)
 
