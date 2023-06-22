@@ -8,7 +8,7 @@
 
 steam的dll是用Themida保护的，其实就是Themida自己手动加载dll，目录下那个dll实际上是没用的，不过和内存里dump出来的是一样的，和Steamworks官方提供的dll好像也是一样的，这都不算什么，毕竟Alpharom十多年前就玩过了，小套路而已，但是这玩意比Alpharom强的是懂得代码虚拟化，调着真是依托shit啊。
 
-![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/3.png?raw=true)
+![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/3.png?raw=true)
 
 不过GitHub好像是有几个项目能还原Themida的虚拟机，但是我本身不怎么研究脱壳加壳，要搞这个也得有点时间，而且就算搞定，也没用，因为我就没研究过steam游戏的验证机制 ：），他要是稍微搞点一般steam emulator过不了的东西那我也搞不懂，到头还得研究steam验证机制谁有空啊。
 
@@ -16,11 +16,11 @@ steam的dll是用Themida保护的，其实就是Themida自己手动加载dll，�
 
 反正 Happy Live Show Up 官中是看着头大，对Themida加载的steam dll全部api都hook重定向到Goldberg貌似是能过steam验证的，但是返回到游戏exe里然后跳到虚拟化代码里饶了几圈就寄了，看着像是被检测到了，中途还能看到检测steam.exe是否存在的各种奇奇怪怪的检测，函数调用和返回疯狂往虚拟机里跳，从游戏exe走到，SteamAPI_RestartAppIFNecessary居然能把x64dbg的tracing的默认5w步走完还多8000多步，根个病毒一样，一般这个步数撑死都不会超过500，有多慢就可想而知了。
 
-![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/2.png?raw=true)
+![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/2.png?raw=true)
 
 后面发现把他检测线程干掉了，能正常走到游戏显示启动项的地方，但是提示读取资源错误。感觉要么是有其它检测，要么是被检测到随机返回了错误的数据给游戏。
 
-![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/1.png?raw=true)
+![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/1.png?raw=true)
 
 至于具体是什么问题就很难判断了，因为我这根本没steam账号，根本跑不起来这个游戏，跟踪更没可能了。还是丢回收站，右键清空回收站实在。
 
@@ -32,7 +32,7 @@ ok别管，开始跟踪解密流，跟踪的时候就明了了，官中的封包
 
 下面就是解密算法的一部分，粗略统计应该有七次解密循环，只有第一次的xor是良心的，后面都是一坨。而且这么多重的解密应该也不像是自己写的，可能是套用了什么现成的算法或变种，当然具体不清楚，唯一清楚的是，这东西跑起来巨卡。后面刚好网上有人放了破解补丁，但是我已经对破解不感兴趣了，因为这玩意的数据加密，再加上QLIE初始化的时候会遍历全部封包的文件，导致游戏一打开卡的一坨。虽然是单核战士，并不会给你电脑卡死，除非你是单核的电脑，但是游戏确实卡。
 
-![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/4.png?raw=true)
+![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/4.png?raw=true)
 
 ## 躺平
 
@@ -60,19 +60,19 @@ ok别管，开始跟踪解密流，跟踪的时候就明了了，官中的封包
 
 由于我一开始把QLIE当成了C/C++开发的，一个jmp干过去，dump完了数据，准备收工，后来仔细思索发现有点不像是C/C++开发的，一查是Delphi，那这不就妥了。
 
-![5](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/5.png?raw=true)
+![5](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/5.png?raw=true)
 
 来请IDR https://github.com/crypto2011/IDR
 
-![6](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/6.png?raw=true)
+![6](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/6.png?raw=true)
 
 这可比IDA爽多了。很多函数名已经还原了，接着导出这些函数名和标记到IDA
 
-![7](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/7.png?raw=true)
+![7](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/7.png?raw=true)
 
 可以发现封包的处理是属于TFilePack  THashFile这种名称函数的，由于Delphi我甚至都没用过，只是在函数调用约定里见过Pascal调用这种，具体细节不是很清楚，不过一开始我已经分析到了QLIE循环读取封包里文件名的地方，所以从这个地方往回翻，跟踪Create Init Get这种后缀的函数大致可以推断出结构，由于我们的目的仅仅是调用接口解包，所以没必要全部分析出来，除非你想移植QLIE引擎。
 
-![8](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/8.png?raw=true)
+![8](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/8.png?raw=true)
 
 ## QLIE Extract
 
@@ -87,7 +87,7 @@ ok别管，开始跟踪解密流，跟踪的时候就明了了，官中的封包
 
 ### 初始化封包
 
-![13](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/13.png?raw=true)
+![13](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/13.png?raw=true)
 
 ```C
 LPTPack_PackEntry THashFilePack_Create(LPTPack_InitTable pFileList, CHAR cUn0, LPTPack_Buffer pKeyFile, CHAR cUn1, CHAR cUn2, PCWCHAR lpPackName)
@@ -97,7 +97,7 @@ THashFilePack_Create 这个函数是用来初始化封包的，可以理解为�
 
 游戏启动的时候会多次调用这个函数，初始化全部封包，保存全部的TPack_PackEntry
 
-![12](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/12.png?raw=true)
+![12](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/12.png?raw=true)
 
 当然下面的结构不一定是对的，因为我只关心提取文件，没有把全部成员的具体作用都观察完
 
@@ -143,22 +143,22 @@ typedef struct TPack_PackEntry
 
 
 
-![10](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/10.png?raw=true)
+![10](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/10.png?raw=true)
 
 
 
-![11](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/11.png?raw=true)
+![11](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/11.png?raw=true)
 
 
 
-![9](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/9.png?raw=true)
+![9](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/9.png?raw=true)
 
 从这里开始就可以导出全部的文件名了。
 通过TPack_ResIndex的pResNameEntry和dwResCount成员就可以得到文件名和文件数量信息
 
-![14](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/14.png?raw=true) 
+![14](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/14.png?raw=true) 
 
-![23](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/23.png?raw=true)
+![23](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/23.png?raw=true)
 
 ### 读取资源
 
@@ -179,21 +179,21 @@ typedef struct TPack_Buffer
 }*LPTPack_Buffer;
 ```
 
-![15](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/15.png?raw=true)
+![15](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/15.png?raw=true)
 
 ### 释放资源
 
 现在这个函数的两个参数我们都有，那么是不是意味着我们可以使用该函数来提取全部文件？确实，参数齐全，但是还有一步很重要，就是该函数返回的对象如何析构，也就是在内存中申请空间要如何释放？如果不找到释放的地方，我们就算可以成功调用该函数来提取文件，也会出现内存溢出和内存无法回收的情况。
 
-![16](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/16.png?raw=true)
+![16](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/16.png?raw=true)
 
 先IDA里看看能不能捡漏，看着好像没有，那只能往上翻了，按一下X发现很多引用，还是回到x64dbg往下跟踪吧，实在不行还能下断点。不过运气比较好，第二次返回RET就看到了叫 TObject.Free
 
-![18](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/18.png?raw=true)
+![18](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/18.png?raw=true)
 
 发现就是调用pTable指向的一堆函数地址的表里的个函数，调用之后buffer和size都清空了
 
-![19](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/19.png?raw=true)
+![19](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/19.png?raw=true)
 
 ok至此释放的函数也找到了。
 
@@ -203,7 +203,7 @@ ok至此释放的函数也找到了。
 
 这里我直接把THashFilePack_Get的其中一个参数的文件名改一下，然后用Garbro来解包看看返回的对象的buffer是不是对应文件名的那个文件。
 
-![17](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/17.png?raw=true)
+![17](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/17.png?raw=true)
 
 改了后发现直接读取失败了，难道有什么蹊跷？仔细观察发现它的字符串是Pascal格式的，即前面有一个长度标识把这个长度也写上就正常了。但是这样每次都要计算一下长度生成Pascal格式的字符串也不是很方便。
 
@@ -211,19 +211,19 @@ ok至此释放的函数也找到了。
 
 TFilePack_Get0则是对TFilePack_Get的封装，里面其实是用另一个函数来查序号。
 
-![20](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/20.png?raw=true)
+![20](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/20.png?raw=true)
 
-![21](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/21.png?raw=true)
+![21](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/21.png?raw=true)
 
 好了，现在我们只需要调用TFilePack_Get传文件名和序号就可以提取全部资源了。
 
-![22](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/22.png?raw=true)
+![22](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/22.png?raw=true)
 
 当然保存完成文件后别忘了释放。
 
-![24](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/24.png?raw=true)
+![24](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/24.png?raw=true)
 
-![25](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/25.png?raw=true)
+![25](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/25.png?raw=true)
 
 ### 结束
 
@@ -233,4 +233,4 @@ TFilePack_Get0则是对TFilePack_Get的封装，里面其实是用另一个函�
 
 反正最终分离出来，除去视频文件，就30多mb大的补丁。
 
-![26](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/26.png?raw=true)
+![26](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BQLIE%E5%BC%95%E6%93%8E%5D%20%E5%B0%81%E5%8C%85%E6%8E%A5%E5%8F%A3Hook/26.png?raw=true)

@@ -59,7 +59,7 @@ byte caption[captionLength]
 
 下面是某个游戏的`yscfg.ybn`文件
 
-![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%E5%85%8D%E5%B0%81%E5%8C%85%E5%A4%84%E7%90%86/%E5%9B%BE1.png)
+![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%E5%85%8D%E5%B0%81%E5%8C%85%E5%A4%84%E7%90%86/%E5%9B%BE1.png)
 
 图中红色方框圈起来的就是这三个参数，可以看到他们都是01开头的，其实最后一个红色方框的01是我改的原来是0，也就是`filePriorityRelease`是0，我们的目的正是在把`filePriorityRelease`变为1也就是和图上一样，这样就可以让游戏优先读取目录下的文件了。
 

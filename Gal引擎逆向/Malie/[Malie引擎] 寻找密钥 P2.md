@@ -16,15 +16,15 @@
 
 由于这个也是加Playdrm的，还是和之前一样，直接ReadFile断下。等到ReadFile读取大小那个参数为0x1000的时候我们知道它就是在读取文件的前0x10个字节，然后判断是否为LIBP，注意下硬件断点的时候不要在buffer的第一个字节下，最好下在第四个字节处，因为第一个字节它别的函数会读一下，影响我们断在正确的位置。
 
-![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/1.png?raw=true)
+![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/1.png?raw=true)
 
 第二次ReadFile的时候正确下断点，找到Copy出来的0x10个字节继续下断点，然后运行就会停在这个位置，对的，这个位置就是这个游戏的解密函数。
 
-![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/2.png?raw=true)
+![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/2.png?raw=true)
 
 看着和原来的Camellia 加密有点像。这个函数我整理了一下
 
-![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/3.png?raw=true)
+![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/3.png?raw=true)
 
 经过对几个相同加密的游戏对比发现aStaticTable是不变的。只有图上那四个一大串的数值会变化。
 
@@ -32,7 +32,7 @@
 
 今天晚上写文章整理的时候发现Garbro也有实现这种加密的支持，Garbro里叫 MalieEncryption
 
-![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/4.png?raw=true)
+![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BMalie%E5%BC%95%E6%93%8E%5D%20%E5%AF%BB%E6%89%BE%E5%AF%86%E9%92%A5%20P2/4.png?raw=true)
 
 如果给Garbro添加密钥也是可以支持这种版本的解密的，不过由于我水平有限，才学浅陋，只能点到为止，有能力的自己去添加吧。
 

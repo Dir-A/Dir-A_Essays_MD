@@ -5,11 +5,11 @@ Eushully 的AGE引擎(ARCGameEngine)有一种类似于CatSystem2的本机安装�
 ## 目标游戏：魔導巧殻
  调用检查函数
 
-![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/1.png)
+![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/1.png)
 
  00486E30 CheckIsReg 
 
-![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/2.png)
+![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/2.png)
 
 返回1表示注册，返回0表示未注册，返回值随后会写入都内部的变量（set:IsReggist）里存储
 
@@ -27,7 +27,7 @@ SYS4RK.BIN文件是唯一一个游戏目录下安装在不同机器上会修改�
 
 0041207A 读取set:IsReggist的值
 
-![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/3.png)
+![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/3.png)
 
 读取后进行消息循环，并验证set:IsReggist的值，如果该值为未注册的，则会进入随机显示错误消息弹窗。
 
@@ -41,5 +41,5 @@ SYS4RK.BIN文件是唯一一个游戏目录下安装在不同机器上会修改�
 
 ## 版本显示
 00480430 获取版本号  
-![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/4.png)  
+![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BAGE%E5%BC%95%E6%93%8E%5DEushully%20%E8%BF%87%E6%B3%A8%E5%86%8C%E6%A3%80%E6%9F%A5/4.png)  
 该函数用来打开更新安装补丁写在注册列表中的项，从而获取版本号，如果没有则显示1.0版本，即使更新补丁文件已经放到游戏目录下，暂时不清楚会不会对游戏运行有影响。

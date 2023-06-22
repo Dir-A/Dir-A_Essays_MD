@@ -54,7 +54,7 @@ ysbin\yst%05d.ybn
 
 来到对应位置下断点
 
-![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE1.png)
+![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE1.png)
 
 看下面红色箭头指向的地方，有个jl往回跳了，这其实是一个循环，还可以看到里面有个很明显的xor字眼。
 
@@ -80,7 +80,7 @@ ysbin\yst%05d.ybn
 
 DWORD或BYTE都行啦，然后跑一下，会来到这个位置
 
-![图2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE2.png)
+![图2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE2.png)
 
 可以看到它把EAX的值，一个个搬过去了，其实这个EAX的值就是密钥啦。如果你再对上面那个call下一个断点，你会发现，这个`Yu-ris`传进去计算出了一个密钥放到eax里。其实这个密钥也是最经典的yuris脚本的密钥。如果你把`Yu-ris`改掉，密钥也自然就不一样了。
 
@@ -88,7 +88,7 @@ DWORD或BYTE都行啦，然后跑一下，会来到这个位置
 
 以下是新版本的，大同小异，当然新版本就不能直接读取ysbin目录了，得稍微改一下，以后再说。
 
-![图3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE3.png)
+![图3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE3.png)
 
-![图4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE4.png)
+![图4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20%E5%AF%BB%E6%89%BE%E8%84%9A%E6%9C%AC%E5%AF%86%E9%92%A5/%E5%9B%BE4.png)
 

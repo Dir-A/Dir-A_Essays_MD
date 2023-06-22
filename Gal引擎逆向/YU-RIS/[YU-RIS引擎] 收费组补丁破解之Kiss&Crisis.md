@@ -18,7 +18,7 @@
 
 这里处理一个**Pure More** 社的，叫：**Kiss & Crisis**
 我没破，因为是YU-RIS的，这引擎我没怎么研究过，当时dump完文件，发现密钥和原来的游戏不一样，就放着没看了，因为加壳，验证的时候，解密的只有壳和验证程序的代码，很难去找密钥。
-![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/1.png)
+![1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/1.png)
 
 今天傍晚看了下YSTB的加密，就是简单的xor，xor？哦？那岂不是不用密钥了？
 毕竟我有日文版的文件，肯定不可能全部脚本都改掉
@@ -35,24 +35,24 @@
 注意看上下两个文件，一个是加密的，一个是解密的
 除去signature，盯着00看，图中红框两个，后面00 00（这加密是四位的）
 很显然这个xor{key}的后两个就是 **A545** ,那么前两位呢？
-![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/2.png)
+![2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/2.png)
 
 ------
 
 别急我们再往下翻，看有个居然是 **00 00 00 00** ，
 说明，这个对应上面的加密文件，就是我们的密钥啊！ **0xEA04A545** ┌(。Д。)┐
 好了，到这就分析完成了，如何从原文件到加密文件读出密钥，接着迁移到屋子那个文件上看看。
-![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/3.png)
+![3](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/3.png)
 
 ------
 
 还是那个位置，我们打开dump好的屋子的文件。读出密钥为 **0x94114514** (°ー°〃) 居然这么简单？
 当然这个位置焊化的文件可能变了，xor后就不是密钥了，那么我们可以找多处 **00 00 00 00** 的地方来比对
 总之一番操作后，确定密钥就是这个了，接下来就简单了，先decrypt然后用原游戏的密钥xor回去
-![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/4.png)
+![4](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/4.png)
 
 ------
 
 当然了，这个时候还得结合一下汉化yuris的经验，读取封包，校验表改掉，放入ybn文件
 启动！芜湖，完美（当然了，这只是想象的，实际上我还改了一堆东西T_T
-![5](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/5.png)
+![5](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%E5%BC%95%E6%93%8E%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis/5.png)

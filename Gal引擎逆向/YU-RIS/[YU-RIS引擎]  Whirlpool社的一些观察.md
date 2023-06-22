@@ -109,9 +109,9 @@ unsigned AnsiChar data[56] = {
 
 把exe的SJIS校验表改了，然后改一下文件读取顺序，变成可以免封包读取txt文件，然后修改一下txt文件的内容。更改修改的ybn文件也放到目录下ysbin文件夹里（ybn记得xor会去）
 
-![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20Whirlpool%E7%A4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%82%E5%AF%9F/%E5%9B%BE1.png)
+![图1](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20Whirlpool%E7%A4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%82%E5%AF%9F/%E5%9B%BE1.png)
 
-![图2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/image/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20Whirlpool%E7%A4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%82%E5%AF%9F/%E5%9B%BE2.png)
+![图2](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYURIS%E5%BC%95%E6%93%8E%5D%20%20Whirlpool%E7%A4%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A7%82%E5%AF%9F/%E5%9B%BE2.png)
 
 可以看到汉（0xBABA）这个字出来了，但是后面的字符都没了，汉这个字的GBK已经是超过SJIS原来的边界了，不过至于为什么这里也会出问题，你可能会说是判断了第二个字节，其实不是，或第二个字，其实也不是，这里只有第一个字解除了限制可以出来，只要是GBK里的都行，但是后面第二个字符只有写SJIS范围内的才能出来，否则就像图上那样。可能还有地方限制了范围，但是没找到。
 
