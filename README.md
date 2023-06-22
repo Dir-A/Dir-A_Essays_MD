@@ -80,7 +80,7 @@ Galgame引擎逆向的皮毛┗( T﹏T )┛
 | [初步了解C++对数据封装的设计思维](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C%2B%2B/%5BC%2B%2B%5D%20%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3C%2B%2B%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4.md) | |
 
 ## 壳
-能翻墙就别拿锤子砸门！ ┑(￣Д ￣)┍
+能翻墙就别拿锤子砸门 ┑(￣Д ￣)┍
 
 ### The Enigma Protector
 | 标题 | 日期 |
