@@ -14,7 +14,7 @@
 
 SDK下载后解压到 “システム”文件夹里就是demo的项目目录了，
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\1.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/1.png)
 
 官方还有一份这个目录的结构说明
 
@@ -46,11 +46,11 @@ data里就是项目文件了，包含了脚本代码和资源文件，system里�
 
 转区启动可以看到这个界面，编译完成后这个程序就退出了，demo正常运行启动，可见是在运行的时候进行了脚本的编译，不过目录下并没有编译后的文件就是了
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\2.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/2.png)
 
 找到编译器的主程序看看，可以看到YSCom.exe就是了，还有个YSCom.ycd的文件，这个Com应该是command的缩写，里面的结构和编译后ysbin里的ysc.ybn文件很像，那些字符串其实是按顺序的Opcode的名称和参数的名称，这个有机会再说吧。双击YScom.exe也没任何反应，控制台运行也没有任何输出。
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\3.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/3.png)
 
 ## 方法论
 
@@ -68,11 +68,11 @@ yu-ris.exe就是主程序了，既然要调用YSCom.exe进行编译，肯定有�
 
 随便思索一下，现在把yu-ris.exe拽进IDA先。进来后搜一下字符串，YSCom果然是有的，而且还是相对路径
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\4.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/4.png)
 
 查看一下引用，发现都来自同一个函数内部，这里函数名和变量名我稍微处理了一下，并添加了结构体偏移的信息
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\5.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/5.png)
 
 一看到CreateFileMapping差不多结构就出来了，这是通过内核对象来在不同进程之间传递数据啊，不懂也没关系稍后介绍吧。
 
@@ -82,7 +82,7 @@ yu-ris.exe就是主程序了，既然要调用YSCom.exe进行编译，肯定有�
 
 其实不转区也是可以打开程序的，只不过会在编译阶段报错，这个原因和路径有关，只要路径全为英文就可以打开，**具体原因参见[无法直接运行的解决方法](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/引擎逆向/YU-RIS/[YU-RIS] 无法直接运行的解决方法.md)**
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\8.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/8.png)
 
 一进来就是fopen，可以看到fopen成功后就fclose了，可见这个仅仅只是判断YSCom.exe这个文件是否存在而已
 
@@ -113,7 +113,7 @@ struct YSCOM_Compiler_HDR
 
 先是判断了args的数目，显然是两个，如果直接双击运行编译器的exe显然是一个arg，那么start_compile_flag就会变成0从而无法进入StartCompile函数来执行编译，也就是退出了程序。如果正确的添加了arg，那么会对比第二个arg是不是ys，是的话给start_compile_flag赋值true，也就可以进入StartCompile函数来进行编译了。通过对arg的观察，发现这个ys除了在这里进行验证，也没别的作用了，我们完全可以强制跳转到StartCompile函数。
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\9.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/9.png)
 
 回到我们的主程序，然后是一个while死循环，里面在判断这个编译器进程是否在运行，并且等待uiCompileState0，被修改为1，显然是等待编译器的进程去修改，也就说明编译器会去OpenFileMapping，然后MapViewOfFile，并修改。如果编译器进程在运行，并且修改为1，则退出循环。
 
@@ -121,23 +121,23 @@ struct YSCOM_Compiler_HDR
 
 搜索结果有两处，第一处可以看到检查了版本号，并且把主程序当前的目录路径字符串复制了一份。但是这里并没有去修改uiCompileState0。
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\7.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/7.png)
 
 第二处如下
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\10.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/10.png)
 
 可以看到这里打开了YU-RISCompilerFileMapObject并且映射进地址空间，修改了uiCompileState0为1，这样主程序的死循环就可以退出来了。同时还传递了脚本数量和编译后buffer的总大小信息，然后对ProjectPath拷贝了一些东西，并死循环来等待uiCompileState1被修改成1
 
 回到我们的主程序，死循环退出后获取了编译脚本的总数和总大小，并开始创建名为YU-RISCompilerFileMapObject2的新内核对象，该内核对象的大小正是刚刚传递过来的编译文件总大小。
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\11.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/11.png)
 
 创建完成新的内核对象，就对uiCompileState1修改成1，此时一个死循环，等待编译进程退出。
 
 来到编译器这边
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\12.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/12.png)
 
 可以看到打开了新的内核对象，并有一个以脚本数量为范围的循环处理，猜测就是编译部分的代码了，不过这里好多都是函数指针数组的调用，看起来有点麻烦，需要先回去函数指针数组初始化的地方看数组对应的真正函数地址。
 
@@ -149,7 +149,7 @@ struct YSCOM_Compiler_HDR
 
 当编译器进程退出后，map_file内buffer里的数据如下
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\17.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/17.png)
 
 结构也可以很简单，脚本路径字符串长度，脚本路径字符串，脚本数据大小，脚本数据，按照这个结构解析就可以得到全部编译后的文件了，值得注意的是这些编译后的文件都是加密的，也就是xor啦，用的是默认的密钥，0x96AC6FD3，也可以猜密钥，方法很多。
 
@@ -172,19 +172,19 @@ struct YSCOM_Compiled_Script
 
 如果你看到我之前的文章就知道，yu-ris读取文件有不同的模式，通过一个读取优先顺序的数组来控制。
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\13.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/13.png)
 
 可以看到有三种模式
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\14.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/14.png)
 
 可见GetFileViaList这个分支就是读取刚刚编译器生成的文件数据。而下面两个则是从封包和目录下读取文件。
 
 sg_ysbin_file_list结构如下
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\15.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/15.png)
 
-![](..\..\.img\[YU-RIS]_SDK编译器调用\16.png)
+![](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/.img/%5BYU-RIS%5D_SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8/16.png)
 
 ## 实现编译器的启动器
 
