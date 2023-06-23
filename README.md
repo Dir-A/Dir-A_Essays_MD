@@ -24,6 +24,7 @@ Galgame引擎逆向的皮毛┗( T﹏T )┛
 | [无法直接运行的解决方法](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/YU-RIS/%5BYU-RIS%5D%20%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.md) | |
 | [收费组补丁破解之Kiss&Crisis](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/YU-RIS/%5BYU-RIS%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8BKiss%26Crisis.md) | |
 | [收费组补丁破解之ペトリコール](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/YU-RIS/%5BYU-RIS%5D%20%E6%94%B6%E8%B4%B9%E7%BB%84%E8%A1%A5%E4%B8%81%E7%A0%B4%E8%A7%A3%E4%B9%8B%E3%83%9A%E3%83%88%E3%83%AA%E3%82%B3%E3%83%BC%E3%83%AB.md) | |
+| [SDK编译器调用](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/YU-RIS/%5BYU-RIS%5D%20SDK%E7%BC%96%E8%AF%91%E5%99%A8%E8%B0%83%E7%94%A8.md) | 2023年6月23日 |
 
 ### ACV1 引擎
 使用该引擎的会社:
