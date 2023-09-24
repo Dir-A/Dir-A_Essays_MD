@@ -65,7 +65,7 @@ Galgame引擎逆向的皮毛┗( T﹏T )┛
 使用该引擎的会社:
 | 标题 | 日期 |
 | :-----: | :-----: |
-| [[Minori]英文版引擎汉化处理](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/Minori/%5BMinori%5D%E8%8B%B1%E6%96%87%E7%89%88%E5%BC%95%E6%93%8E%E6%B1%89%E5%8C%96%E5%A4%84%E7%90%86/%5BMinori%5D%E8%8B%B1%E6%96%87%E7%89%88%E5%BC%95%E6%93%8E%E6%B1%89%E5%8C%96%E5%A4%84%E7%90%86.md) | |
+| [[Minori]英文版引擎汉化处理](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/Minori/%5BMinori%5D%E8%8B%B1%E6%96%87%E7%89%88%E5%BC%95%E6%93%8E%E6%B1%89%E5%8C%96%E5%A4%84%E7%90%86/%5BMinori%5D%E8%8B%B1%E6%96%87%E7%89%88%E5%BC%95%E6%93%8E%E6%B1%89%E5%8C%96%E5%A4%84%E7%90%86.md) | 2023年9月24日 |
 
 ## 方法论
 不要在错误的方向一路狂奔(°ー°〃)
