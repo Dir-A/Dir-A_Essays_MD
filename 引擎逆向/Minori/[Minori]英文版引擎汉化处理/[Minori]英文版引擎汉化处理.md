@@ -129,17 +129,16 @@ static void __declspec(naked) ReadChar_Hook()
 		cmp ecx, 0x81;
 		jb not_DBCS;
         
-    is_DBCS: // 如果 大于 0x81 就读取一个字节放 ch
+        is_DBCS: // 如果 大于 0x81 就读取一个字节放 ch
 		mov ch, byte ptr[eax];
 		inc eax; // eax + 1 然后读一个字节放 cl
 		mov cl, byte ptr[eax];
         
-	not_DBCS:
-        // 如果 小于 0x81 就写入buffer然后返回
+         not_DBCS: // 如果 小于 0x81 就写入buffer然后返回
 		mov dword ptr[ebp - 0x10], ecx;
 		ret; // 返回下一行汇编 也就是 test ecx, ecx 上面的nop
 	}
-    // ? 为什么要这样？大小端问题！
+    // ？ 为什么要这样？大小端问题！
     // 这边如果不颠倒字节顺序，那就需要在 GetGlyphOutline 进行字节顺序颠倒
     // 不然输入给 GetGlyphOutline 的字符的字节是倒过来的
     // 看不懂？复习一下GBK和SJIS编码范围吧！
