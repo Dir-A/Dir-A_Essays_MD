@@ -74,6 +74,7 @@ Galgame引擎逆向的皮毛┗( T﹏T )┛
 | :-----: | :-----: |
 | [免封包略谈](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E6%96%B9%E6%B3%95%E8%AE%BA/%5B%E5%B0%81%E5%8C%85%5D%20%E5%85%8D%E5%B0%81%E5%8C%85%E7%95%A5%E8%B0%88.md) | |
 | [VFS的实现思路](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E6%96%B9%E6%B3%95%E8%AE%BA/%5B%E6%96%B9%E6%B3%95%E8%AE%BA%5D%20VFS%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF.md) | |
+| [封包逆向入门](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E6%96%B9%E6%B3%95%E8%AE%BA/%5B%E6%96%B9%E6%B3%95%E8%AE%BA%5D%20%E5%B0%81%E5%8C%85%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8.md) | 2023年9月29日 |
 
 
 ## 编程语言
