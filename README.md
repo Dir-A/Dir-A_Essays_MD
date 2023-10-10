@@ -47,6 +47,7 @@ Galgame引擎逆向的皮毛┗( T﹏T )┛
 | 标题 | 日期 |
 | :-----: | :-----: |
 | [紫社引擎 折腾日记 Purple software](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/CMVS/%5BCMVS%5D%20%E7%B4%AB%E7%A4%BE%E5%BC%95%E6%93%8E%20%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%20Purple%20software.md) | |
+| [CMVS 文件读取分析](https://github.com/Dir-A/Dir-A_Essays_MD/blob/main/%E5%BC%95%E6%93%8E%E9%80%86%E5%90%91/CMVS/CMVS%20%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%88%86%E6%9E%90/CMVS%20%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E5%88%86%E6%9E%90.md) | 2023年10月11日 |
 
 ### QLIE 引擎
 使用该引擎的会社:
