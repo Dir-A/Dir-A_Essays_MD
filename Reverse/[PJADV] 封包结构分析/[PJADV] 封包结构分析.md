@@ -54,15 +54,15 @@
 struct PAJ_Pack_FileName
 {
     char aFileName[32];
-}
+};
 
 struct PAJ_Pack
 {
-	char aSignature[12];
+    char aSignature[12];
     uint32_t uiFileCount;
     PAJ_Pack_FileName aNameList[uiFileCount];
     // data..
-}
+};
 ```
 
 好了，现在，我们应该只差文件的大小和文件数据偏移了（依据最少信息可解出封包文件的原则（这原则是我瞎说的 :P ）），那么这些信息应该就在附近，继续往下看
@@ -93,13 +93,13 @@ struct PAJ_Pack
 struct PAJ_Pack_File_Name
 {
 	char aFileName[0x20];
-}
+};
 
 struct PAJ_Pack_File_Info
 {
 	uint32_t uiOffset; // skip HDR
 	uint32_t uiSize;
-}
+};
 
 struct PAJ_Pack_HDR_Info
 {
@@ -112,13 +112,13 @@ struct PAJ_Pack_HDR
 	PAJ_Pack_HDR_Info  Info;
 	PAJ_Pack_File_Name FileNameList[uiFileCount];
 	PAJ_Pack_File_Info FileInfoList[uiFileCount];
-}
+};
 
 struct PAJ_Pack
 {
     PAJ_Pack_HDR HDR;
     uint8_t aData[??];
-}
+};
 ```
 
 啊，肯定有人会说，你这不是事后诸葛亮？
