@@ -154,7 +154,7 @@ folder_map["BGM"];
 
 ## ArchiveManager 构造
 
-`ArchiveManager` 通过 `archive.ini` 里的字段来构造，还得`archive.ini`里写的一堆封面名吗？
+`ArchiveManager` 通过 `archive.ini` 里的字段来构造，还记得archive.ini`里写的一堆封包名吗？
 
 简单来说就是`ArchiveManager`里有个`vector`存储封包名，一个`map`存储文件名/封包在`vector`索引的键值对
 
