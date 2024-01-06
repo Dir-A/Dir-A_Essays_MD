@@ -32,7 +32,8 @@ struct PAJ_VFS
 
 ## 入手点
 
-首先调试`PAJ_VFS`相关成员函数，因为这个是游戏读取封包的接口，不断调试可以发现，几乎所有的封包文件读取都调用了`PAJ::OpenFile`
+首先调试`PAJ_VFS`相关成员函数，因为这个是游戏读取封包的接口，就和前面说的相当于`fopen`，所以基本上打开封包都要经过`PAJ::VFS::Open`
+不断调试可以发现调用`PAJ::VFS::Open`最密集最频繁的是`PAJ::OpenFile`，也就是说封包文件读取是调用`PAJ::OpenFile`
 
 ![](image/2.png)
 
