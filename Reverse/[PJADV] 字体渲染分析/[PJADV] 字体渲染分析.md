@@ -6,9 +6,9 @@
 
 ​	也可以直接去看MSDN，不过MSDN很多都是机翻的，效果很烂，最好是读英文原版，或者至少把英文原版通过别的工具翻译，因为MSDN官方的机翻，效果很差，读起来不知所云。
 
-https://learn.microsoft.com/en-us/windows/win32/gdi/fonts-and-text
-https://learn.microsoft.com/en-us/windows/win32/gdi/raster--vector--truetype--and-opentype-fonts
-https://learn.microsoft.com/en-us/windows/win32/gdi/font-and-text-functions
+- https://learn.microsoft.com/en-us/windows/win32/gdi/fonts-and-text
+- https://learn.microsoft.com/en-us/windows/win32/gdi/raster--vector--truetype--and-opentype-fonts
+- https://learn.microsoft.com/en-us/windows/win32/gdi/font-and-text-functions
 
 ### 原始数据
 
