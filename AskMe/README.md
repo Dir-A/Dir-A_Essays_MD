@@ -2,7 +2,7 @@
 
 ## 提问
 
-任何问题请提交issues
+任何问题请提交[issues](https://github.com/Dir-A/Dir-A_Essays_MD/issues)，但提issue前请先阅读下述内容。
 
 ### 提问的规则
 
