@@ -141,7 +141,7 @@ E:.
 回到`x64 Native Tools Command Prompt for VS 2022`的CMD窗口，切换目录到刚刚创建的`tmp`文件夹
 
 ```
-> cd /d E:\Library\tmp
+cd /d E:\Library\tmp
 ```
 
 ![](img/8.png)
@@ -169,13 +169,14 @@ E:.
 > 如果直接执行configure.bat就是用默认的配置生成构建项目文件，但我们可以加一些参数来改变生成的构建项目的参数，比如我们想要同时编译debug和release版，或只想编译某一个模块，或只想编译静态库，或只想用静态运行时等。之所以叫configure.bat当然是因为能config啊（
 
 下面是我们需要用到的几个参数
-
-`-static` 编译静态库
-`-static-runtime` 使用静态运行时（MD）
-`-debug-and-release` 同时编译release版和debug版
-`-release` Release模式编译
-`--prefix` 编译后库的安装位置
-`-submodules` 选择要编译的模块
+```
+-static              编译静态库
+-static-runtime      使用静态运行时（MD）
+-debug-and-release   同时编译release版和debug版
+-release             Release模式编译
+--prefix             编译后库的安装位置
+-submodules          选择要编译的模块
+```
 
 > 这里选择编译了qtbase和qttools模块，正常widget开发够用，如果要安装别的模块可以用逗号隔开，要安装所有就把这个指令删了（-submodules qtbase,qttools），qbase主要包括widgets，gui，core这些，qttools主要是为了编译designer
 
