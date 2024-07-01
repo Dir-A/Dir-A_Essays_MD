@@ -168,12 +168,12 @@ E:.
 
 下面是我们需要用到的几个参数
 
--static              编译静态库
--static-runtime      使用静态运行时（MD）
--debug-and-release   同时编译release版和debug版
--release             Release模式编译
---prefix             编译后库的安装位置
--submodules          选择要编译的模块
+`-static`              编译静态库  
+`-static-runtime`      使用静态运行时（MD）  
+`-debug-and-release`   同时编译release版和debug版  
+`-release`             Release模式编译  
+`--prefix`             编译后库的安装位置  
+`-submodules`          选择要编译的模块  
 
 ### 编译动态库
 
