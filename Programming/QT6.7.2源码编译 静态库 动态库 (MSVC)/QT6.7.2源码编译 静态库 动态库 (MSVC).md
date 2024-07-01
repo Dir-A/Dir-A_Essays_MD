@@ -1,4 +1,4 @@
-# QT6.7.2 MSVC源码编译 静态库 动态库 
+# QT6.7.2源码编译 静态库 动态库 (MSVC)
 
 也可以参考官方的文档 https://doc.qt.io/qt-6/build-sources.html
 
