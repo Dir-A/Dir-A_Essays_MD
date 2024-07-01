@@ -35,9 +35,9 @@ https://visualstudio.microsoft.com/downloads/
 在CMD窗口依次输入
 
 ```shell
-where ninja
-where cmake
-where python
+> where ninja
+> where cmake
+> where python
 ```
 
 可以查看环境中是否存在`ninja`和`cmake`，这两个是编译QT6所需要的。
@@ -68,10 +68,10 @@ where python
 
 重新检查一下 cmake，ninja，python
 
-```
-cmake --version
-ninja --version
-python --version
+```shell
+> cmake --version
+> ninja --version
+> python --version
 ```
 
 可以发现都显示出了对应的版本号，再去qt官方对一下版本要求，如果都符合就可以了。
@@ -140,8 +140,8 @@ E:.
 
 回到`x64 Native Tools Command Prompt for VS 2022`的CMD窗口，切换目录到刚刚创建的`tmp`文件夹
 
-```
-cd /d E:\Library\tmp
+```shell
+> cd /d E:\Library\tmp
 ```
 
 ![](img/8.png)
@@ -154,52 +154,47 @@ cd /d E:\Library\tmp
 
 下面就表示了`configure.bat`脚本的路径
 
-```shell
-"../src/qt-everywhere-src-6.7.2/configure.bat"
-```
+`"../src/qt-everywhere-src-6.7.2/configure.bat"`
 
 > 为什么要用引号括起来？当然这里其实可以不用，但如果路径中有空格就需要了
 
 先不急着执行这个脚本，先看看帮助信息
 
 ```shell
-"../src/qt-everywhere-src-6.7.2/configure.bat" --help
+> "../src/qt-everywhere-src-6.7.2/configure.bat" --help
 ```
 
 > 如果直接执行configure.bat就是用默认的配置生成构建项目文件，但我们可以加一些参数来改变生成的构建项目的参数，比如我们想要同时编译debug和release版，或只想编译某一个模块，或只想编译静态库，或只想用静态运行时等。之所以叫configure.bat当然是因为能config啊（
 
 下面是我们需要用到的几个参数
-```
+
 -static              编译静态库
 -static-runtime      使用静态运行时（MD）
 -debug-and-release   同时编译release版和debug版
 -release             Release模式编译
 --prefix             编译后库的安装位置
 -submodules          选择要编译的模块
-```
-
-> 这里选择编译了qtbase和qttools模块，正常widget开发够用，如果要安装别的模块可以用逗号隔开，要安装所有就把这个指令删了（-submodules qtbase,qttools），qbase主要包括widgets，gui，core这些，qttools主要是为了编译designer
-
-
 
 ### 编译动态库
 
 下面我们通过组合参数来编译动态库，也就是把库编译成dll，主要用于在开发阶段使用，因为动态库链接速度快（只需要导入个函数就行了），所以为了开发阶段快速编译，一般都是采用动态库（当然如果是闭源软件，那为了不被qt发函，最好也用动态库）
 
+执行以下命令开始`Config`
+
 ```shell
-"../src/qt-everywhere-src-6.7.2/configure.bat" -debug-and-release --prefix="../MSVC_2022/x64_Shared_MD" -submodules qtbase,qttools
+> "../src/qt-everywhere-src-6.7.2/configure.bat" -debug-and-release --prefix="../MSVC_2022/x64_Shared_MD" -submodules qtbase,qttools
 ```
 
-`-debug-and-release` 同时编译debug和release版，如果不需要debug版，改成`-release`即可
+> `-debug-and-release` 同时编译debug和release版，如果不需要debug版，改成`-release`即可
+>
+> `--prefix="../MSVC_2022/x64_Shared_MD"` 表示等下编译完成后安装的目录，也就是当前目录的上一级目录下的`MSVC_2022/x64_Shared_MD`文件夹，说是安装其实就是把库的头文件，动态库，cmake配置文件复制出来
+>
+> `-submodules qtbase,qttools` 这里表示要编译两个模块，`qbase`一般都需要，`qttools`主要是因为`designer`在里面，如果你不需要`designer`就可以删了这个，写成这样 `-submodules qtbase`，当然如果你想编译全部源码，那直接把`-submodules qtbase,qttools`整个删了就好了，默认是编译全部的。
 
-`--prefix="../MSVC_2022/x64_Shared_MD"` 表示等下编译完成后安装的目录，也就是当前目录的上一级目录下的`MSVC_2022/x64_Shared_MD`文件夹，说是安装其实就是把库的头文件，动态库，cmake配置文件复制出来
-
-`-submodules qtbase,qttools` 这里表示要编译两个模块，`qbase`一般都需要，`qttools`主要是因为`designer`在里面，如果你不需要`designer`就可以删了这个，写成这样 `-submodules qtbase`，当然如果你想编译全部源码，那直接把`-submodules qtbase,qttools`整个删了就好了，默认是编译全部的。
+> 这里选择编译了qtbase和qttools模块，正常widget开发够用，如果要安装别的模块可以用逗号隔开，要安装所有就把这个指令删了（-submodules qtbase,qttools），qbase主要包括widgets，gui，core这些，qttools主要是为了编译designer
 
 > 当然你也可以加一些别的指令，比如skip跳过某些组件的编译，具体可以看help
 >
-
-执行命令后会开始配置
 
 > 其实看命令行也知道，configure.bat的作用就是依据参数，去设置cmake的编译参数，也可以自己手动配置cmake的编译参数达到一样的效果，但大可不必，毕竟它都帮你写好了。
 >
@@ -210,17 +205,25 @@ cd /d E:\Library\tmp
 
 ![](img/10.png)
 
-如果`config`成功，最后会提示你如何编译、如何安装
+如果`Config`成功，最后会提示你如何编译、如何安装
 
 > 这里的编译和安装命令可能会依据配置情况，会有所不同，所以一定要看提示。
 
 这里提示使用`cmake --build . --parallel`进行编译，那么直接执行这个指令就好了，接下来就是耐心等待了，注意硬盘可用空间。
+
+```shell
+> cmake --build . --parallel
+```
 
 ![](img/11.png)
 
 编译过程中有一些警告很正常，只要不是error就可以。
 
 编译完成后执行 `ninja install` 来安装库
+
+```shell
+> ninja install
+```
 
 > 按照提示来执行，也有可能不是这个命令
 
@@ -256,11 +259,11 @@ cd /d E:\Library\tmp
 "../src/qt-everywhere-src-6.7.2/configure.bat" -static -static-runtime -release --prefix="../MSVC_2022/x64_Static_Release_MT" -submodules qtbase,qttools
 ```
 
-`-static` 表示编译静态库
-
-`-static-runtime` 表示使用静态的VC运行时（就是把VC的运行时编译进exe，这样就不会出现在一些电脑上找不到运行时情况了）
-
-`-release` Release模式编译
+> `-static` 表示编译静态库
+>
+> `-static-runtime` 表示使用静态的VC运行时（就是把VC的运行时编译进exe，这样就不会出现在一些电脑上找不到运行时情况了）
+>
+> `-release` Release模式编译
 
 > 如果加了-static-runtime，编译我们自己项目的时候release要设置MT编译参数，否则可能会链接出错。debug则要设置MTd编译参数，当然一般没人debug都静态编译，因为静态编译比较慢。
 >
@@ -279,9 +282,17 @@ cd /d E:\Library\tmp
 
 直接执行编译命令即可
 
+```shell
+> cmake --build . --parallel
+```
+
 ![](img/19.png)
 
 编译好后执行安装
+
+```shell
+> cmake --install .
+```
 
 ![](img/20.png)
 
@@ -292,8 +303,6 @@ cd /d E:\Library\tmp
 至此静态库的编译也完成了
 
 > 用MSVC2022编译的库，不要给MinGW用，也不要给GCC之类的用，而且也不要去换MSVC的版本，如果要换编译器或换版本，就全部都换掉，然后重新编译。
-
-
 
 记得把`tmp`目录删了，这东西很大，编译好，安装后一般就没用了
 
