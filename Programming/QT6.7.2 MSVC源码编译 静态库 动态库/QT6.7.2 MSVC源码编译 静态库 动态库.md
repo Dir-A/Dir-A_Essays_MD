@@ -25,10 +25,10 @@ https://visualstudio.microsoft.com/downloads/
 
 ![](img/2.png)
 
-安装好后其实基本环境就有
+安装好后其实基本环境就有了  
 在开始菜单找到 `Visual Studio 2022 /  x64 Native Tools Command Prompt for VS 2022` 点击运行
 
-> 这其实是一个bat脚本，用于初始化一些MSVC的编译环境，点击运行后会打开一个cmd窗口，在这个窗口打开的程序会继承一些环境变量，这对于使用MSVC进行编译很重要。比如在VSCode中使用MSVC编译就需要在这个CMD窗口里启动VSCode，才能获得MSVC需要的编译环境（实际上就是设置了一些环境变量）。当然这启动的是64位的环境，如果需要编译32位的，则运行 `x86 Native Tools Command Prompt for VS 2022`
+> 这其实是一个bat脚本，用于初始化一些MSVC的编译环境，点击运行后会打开一个cmd窗口，在这个窗口打开的程序会继承一些环境变量，这对于使用MSVC进行编译很重要。比如在VSCode中使用MSVC编译就需要在这个CMD窗口里启动VSCode，才能获得MSVC需要的编译环境（实际上就是设置了一些环境变量）。当然这启动的是64位的环境，如果需要编译32位的，则运行 `x86 Native Tools Command Prompt for VS 2022`。  
 
   ![](img/3.png)
 
