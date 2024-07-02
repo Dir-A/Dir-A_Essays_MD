@@ -78,7 +78,7 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vsco
 
 ## 复制测试项目
 
-好了，现在可以把测试项目复制过来了
+好了，现在可以把[测试项目](demo)复制过来了
 
 > 不要把之前VS那个配置好的项目复制过来，后面会讲原因，直接去下载地址重新下一份放过来。
 
