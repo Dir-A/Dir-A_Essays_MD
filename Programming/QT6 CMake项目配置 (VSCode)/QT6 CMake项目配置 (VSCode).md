@@ -118,7 +118,7 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vsco
 
 ![](img/10.png)
 
-从这个cmd窗口启动vscode就可以把这些环境变量继承过来，这样就可以正常使用MSVC编译器了，其实也还有种方法可以达到差不多的目的，但最好就是用这个方法来做，（因为我踩过坑）
+从这个cmd窗口启动vscode就可以把这些环境变量继承过来，这样就可以正常使用MSVC编译器了，其实也还有种方法可以达到差不多的目的，但最好就是用那种方法来做，这边就不说了。（因为我踩过坑）
 
 先加一个qt库到临时的path环境变量(VS配置那篇文章说了)
 
